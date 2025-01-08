@@ -1,5 +1,5 @@
 import React from "react";
-import BannerImg from "../../assets/4547829.jpg";
+import Bannerr from "../../assets/winter.png";
 import { GrSecure } from "react-icons/gr";
 import { IoFastFood } from "react-icons/io5";
 import { GiFoodTruck } from "react-icons/gi";
@@ -13,7 +13,7 @@ const Banner = () => {
           {/* Image Section */}
           <div data-aos="zoom-in" className="flex justify-center">
             <img
-              src={BannerImg}
+              src={Bannerr}
               alt="Winter Sale"
               className="max-w-[450px] h-[400px] w-full object-cover rounded-lg shadow-md"
             />
