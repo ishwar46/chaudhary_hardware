@@ -8,7 +8,7 @@ const ImageList = [
   {
     id: 1,
     img: Image1,
-    title: "Upto 50% Off on Power Tools",
+    title: "Up to 50% Off on Power Tools",
     description:
       "Upgrade your workshop with high-quality power tools. Limited-time offer on drills, saws, and more!",
   },
@@ -29,73 +29,68 @@ const ImageList = [
 ];
 
 const Hero = ({ handleOrderPopup }) => {
-  var settings = {
-    dots: false,
+  const settings = {
+    dots: true,
     arrows: false,
     infinite: true,
-    speed: 800,
+    speed: 1000,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 5000,
     cssEase: "ease-in-out",
-    pauseOnHover: false,
-    pauseOnFocus: true,
+    pauseOnHover: true,
   };
 
   return (
-    <div className="relative overflow-hidden min-h-[550px] sm:min-h-[650px] bg-gray-100 flex justify-center items-center dark:bg-slate-950 dark:text-white duration-200">
-      {/* background pattern */}
-      <div className="h-[700px] w-[700px] bg-primary/40 absolute -top-1/2 right-0 rounded-3xl rotate-45 -z-[8]"></div>
-      {/* hero section */}
-      <div className="container pb-8 sm:pb-0">
+    <div className="relative overflow-hidden min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 dark:from-slate-800 dark:to-slate-900">
+      {/* Decorative Background */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary/30 via-transparent to-secondary/30 blur-lg"></div>
+      <div className="absolute -top-1/3 -left-1/3 h-[700px] w-[700px] bg-primary/20 rounded-full blur-3xl opacity-50 -z-10"></div>
+      <div className="absolute -bottom-1/4 -right-1/4 h-[500px] w-[500px] bg-secondary/20 rounded-full blur-3xl opacity-50 -z-10"></div>
+
+      {/* Hero Section */}
+      <div className="container mx-auto px-6 sm:px-12 py-16">
         <Slider {...settings}>
           {ImageList.map((data) => (
             <div key={data.id}>
-              <div className="grid grid-cols-1 sm:grid-cols-2">
-                {/* text content section */}
-                <div className="flex flex-col justify-center gap-4 pt-12 sm:pt-0 text-center sm:text-left order-2 sm:order-1 relative z-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 items-center gap-12">
+                {/* Text Section */}
+                <div className="text-center sm:text-left">
                   <h1
-                    data-aos="zoom-out"
-                    data-aos-duration="500"
-                    data-aos-once="true"
-                    className="text-5xl sm:text-6xl lg:text-7xl font-bold"
+                    className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-800 dark:text-white"
+                    data-aos="fade-right"
                   >
                     {data.title}
                   </h1>
                   <p
-                    data-aos="fade-up"
-                    data-aos-duration="500"
-                    data-aos-delay="100"
-                    className="text-sm"
+                    className="mt-4 text-lg text-gray-600 dark:text-gray-300 leading-relaxed"
+                    data-aos="fade-right"
+                    data-aos-delay="200"
                   >
                     {data.description}
                   </p>
                   <div
-                    data-aos="fade-up"
-                    data-aos-duration="500"
-                    data-aos-delay="300"
+                    className="mt-6"
+                    data-aos="fade-right"
+                    data-aos-delay="400"
                   >
                     <button
                       onClick={handleOrderPopup}
-                      className="bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full"
+                      className="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white text-lg font-semibold rounded-full shadow-lg hover:scale-105 transform transition-transform duration-300"
                     >
-                      Order Now
+                      Shop Now
                     </button>
                   </div>
                 </div>
-                {/* image section */}
-                <div className="order-1 sm:order-2">
-                  <div
+
+                {/* Image Section */}
+                <div className="flex justify-center sm:justify-end">
+                  <img
+                    src={data.img}
+                    alt="Promotion"
+                    className="w-[90%] max-w-[400px] sm:max-w-[500px] object-contain rounded-lg shadow-2xl transition-transform duration-500 hover:scale-110"
                     data-aos="zoom-in"
-                    data-aos-once="true"
-                    className="relative z-10"
-                  >
-                    <img
-                      src={data.img}
-                      alt="Hardware Store Promotion"
-                      className="w-[300px] h-[300px] sm:h-[450px] sm:w-[450px] sm:scale-105 lg:scale-120 object-contain mx-auto"
-                    />
-                  </div>
+                  />
                 </div>
               </div>
             </div>
